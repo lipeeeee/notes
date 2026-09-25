@@ -1,11 +1,11 @@
 ```
 README.md (index)
 math/
-    books/
-    etc.tex
+  books/
+  etc.tex
 ml/
-    books/
-    etc.tex
+  books/
+  etc.tex
 pdf/
 ```
 
