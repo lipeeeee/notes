@@ -11,7 +11,7 @@ from urllib.parse import quote
 ROOT = Path(__file__).resolve().parent
 BUILD = ROOT / ".build"
 PDF = ROOT / "pdf"
-SECTIONS = ("math", "ml", "projects")
+SECTIONS = ("math", "ml", "proj")
 INDEX_START = "<!-- notes:index:start -->"
 INDEX_END = "<!-- notes:index:end -->"
 

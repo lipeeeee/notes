@@ -6,7 +6,7 @@ math/
 ml/
   books/
   etc.tex
-projects/
+proj/
   sol.md
 pdf/
 ```
@@ -19,4 +19,5 @@ pdf/
 | Source | PDF |
 | --- | --- |
 | [math/books/mml.tex](math/books/mml.tex) | [PDF](pdf/mml.pdf) |
+| [proj/sol.md](proj/sol.md) |  |
 <!-- notes:index:end -->
