@@ -1,21 +1,40 @@
 \documentclass[12pt, letterpaper]{article}
 \usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{amsmath}
 
 \begin{document}
 
 \vspace{-1cm}
 \begin{center}
-    {\Huge\bfseries Mathematics for Machine Learning}
+  {\Huge\bfseries Mathematics for Machine Learning}
 \end{center}
 
 \begin{center}
-    \url{https://mml-book.github.io/book/mml-book.pdf}
+  \url{https://mml-book.github.io/book/mml-book.pdf}
 \end{center}
 
 \vspace{1cm}
 \section{Linear Algebra}
-\begin{quote}
-  Polynomials form a vector space
-\end{quote}
+
+\begin{itemize}
+  \item Polynomials form a vector space.
+
+  \item Elements of $\mathbb{R}^n$ (tuples of $n$ real numbers) are vectors.
+  For example,
+    \[
+      a = \begin{bmatrix}
+        1\\2\\3
+      \end{bmatrix} \in \mathbb{R}^3.
+    \]
+
+  \item Adding two vectors $a,b \in \mathbb{R}^n$ component-wise results
+  in another vector: $a+b=c \in \mathbb{R}^n$.
+
+  \item Scaling: $a \in \mathbb{R}^n,\ \lambda \in \mathbb{R}
+  \Longrightarrow \lambda a \in \mathbb{R}^n$.
+
+\end{itemize}
+
 
 \end{document}
