@@ -6,10 +6,36 @@ import shutil
 import subprocess
 import tempfile
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parent
 BUILD = ROOT / ".build"
 PDF = ROOT / "pdf"
+SECTIONS = ("math", "ml", "projects")
+INDEX_START = "<!-- notes:index:start -->"
+INDEX_END = "<!-- notes:index:end -->"
+
+
+def update_index() -> None:
+  notes = (p for section in SECTIONS for p in (ROOT / section).rglob("*")
+           if p.is_file() and p.suffix.lower() in (".tex", ".md"))
+  rows = []
+  for source in sorted(notes, key=lambda p: p.relative_to(ROOT).as_posix().casefold()):
+    relative = source.relative_to(ROOT).as_posix()
+    label = relative.replace("|", r"\|").replace("[", r"\[").replace("]", r"\]")
+    pdf = PDF / f"{source.stem}.pdf"
+    pdf_link = f"[PDF](pdf/{quote(pdf.name, safe='')})" if source.suffix.lower() == ".tex" and pdf.is_file() else ""
+    rows.append(f"| [{label}]({quote(relative, safe='/')}) | {pdf_link} |")
+  table = "\n".join(("| Source | PDF |", "| --- | --- |", *rows))
+  readme = ROOT / "README.md"
+  content = readme.read_text(encoding="utf-8")
+  if INDEX_START not in content or INDEX_END not in content: raise SystemExit("README.md is missing index markers")
+  start = content.index(INDEX_START) + len(INDEX_START)
+  end = content.index(INDEX_END, start)
+  updated = f"{content[:start]}\n{table}\n{content[end:]}"
+  if updated == content: return
+  readme.write_text(updated, encoding="utf-8", newline="\n")
+  print("Updated README.md")
 
 
 def main() -> None:
@@ -23,12 +49,12 @@ def main() -> None:
   if repo.returncode or Path(repo.stdout.strip()).resolve() != ROOT: raise SystemExit("build.py must be at the Git root")
 
   paths = [ROOT / name for name in args.notes]
-  if not paths: paths = [p for section in ("math", "ml") for p in (ROOT / section).rglob("*.tex")]
+  if not paths: paths = [p for section in SECTIONS for p in (ROOT / section).rglob("*.tex")]
   sources = sorted({path.resolve() for path in paths})
   for source in sources:
     if not source.is_file() or source.suffix.lower() != ".tex" or not source.is_relative_to(ROOT):
       raise SystemExit(f"Invalid note: {source}")
-    if source.relative_to(ROOT).parts[0] not in ("math", "ml"): raise SystemExit(f"Note must be under math/ or ml/: {source}")
+    if source.relative_to(ROOT).parts[0] not in SECTIONS: raise SystemExit(f"Note must be under {', '.join(SECTIONS)}: {source}")
   if len({source.stem.casefold() for source in sources}) != len(sources):
     raise SystemExit("Two notes have the same filename and would overwrite one PDF")
   if BUILD.is_symlink() or PDF.is_symlink(): raise SystemExit("Build and PDF directories must not be symlinks")
@@ -60,6 +86,8 @@ def main() -> None:
     finally:
       temp.unlink(missing_ok=True)
     print(f"Updated {target.relative_to(ROOT)}")
+
+  update_index()
 
 
 if __name__ == "__main__": main()
