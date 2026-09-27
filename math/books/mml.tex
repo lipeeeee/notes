@@ -14,9 +14,9 @@
   \url{https://mml-book.github.io/book/mml-book.pdf}
 \end{center}
 
-\vspace{1cm}
 \section{Linear Algebra}
 
+\subsection{vectors and systems}
 \begin{itemize}
   \item Polynomials form a vector space.
 
@@ -33,6 +33,35 @@
 
   \item Scaling: $a \in \mathbb{R}^n,\ \lambda \in \mathbb{R}
   \Longrightarrow \lambda a \in \mathbb{R}^n$.
+
+  \item Systems of equations: solution by contradiction,
+    \begin{align}
+      x_1 + x_2 + x_3 &= 3 \tag{1}\\
+      x_1 - x_2 + 2x_3 &= 2 \tag{2}\\
+      2x_1 + 3x_3 &= 1 \tag{3}
+    \end{align}
+  has \emph{no solution}: Adding the first two equations yields
+  $2x_1 + 3x_3 = 5$, which contradicts the third equation (3).
+
+  \item Systems of equations: idk this is kinda basic but still,
+    \begin{align}
+      x_1 + x_2 + x_3 &= 3 \tag{1}\\
+      x_1 - x_2 + 2x_3 &= 2 \tag{2}\\
+      x_2 + x_3 &= 2 \tag{3}
+    \end{align}
+  (1) + (2) = $2x_1 + 3x_3 = 5$, i.e., $x_3 = 1$.
+
+  From (3): we then get that $x_2 = 1$. so $(1,1,1)$ is the
+  only possible and \emph{unique solution}
+
+  \item Systems of equations: omition
+    \begin{align}
+      x_1 + x_2 + x_3 &= 3 \tag{1}\\
+      x_1 - x_2 + 2x_3 &= 2 \tag{2}\\
+      2x_1 + 3x_3 &= 5 \tag{3}
+    \end{align}
+    Since (1) + (2) = (3), we omit the third equation. solve with (1) and (2)
+    and let $x_3 = a \in \mathbb{R}$.
 
 \end{itemize}
 
