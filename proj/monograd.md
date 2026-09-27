@@ -5,6 +5,10 @@
 - new op: V(vector)CONST, makes expand a noop, even if it has no cost(does it have cost or is EXPAND free/boundary?)
 - .to() creates COPY OP before realize, it should be a NOOP, maybe not.
 
+- I MIGHT BE THE GOAT, CAN GAIN PERFORMANCE BY DISTRIBUTIVITY RULE ON MATMUL works when A,B have same dims:
+    - (A + B)C = AC + BC
+    - can save time on dense matrices, because we do -1 gemm kernel
+
 - compgt complt
     - then decompose rest
 - OptOps — kernel-level loop optimization: Extracts last 10-15% optimization
