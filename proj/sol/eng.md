@@ -11,6 +11,11 @@ keep in mind: the scraping of data from oracle should be consistent across all
 iterations ideally (just scrape all, each config will NEED post-processing)
 - post-processing fns should have alot of args for multiple usages in multiple configs
 
+- put dataset computation in fn's so older models wont be computing synergy for hours,
+- also we should look into freezing computed datasets if they take too long, just like in tokenizers in transformers
+
+- idk if oracle's elixir need data cleaning before processing into dataset, best is to clean whilst processing
+
 # champ embeddings
 - v1: just embed champ number
 - v2: synergy calcs(carefull because this might put too much emphasis on meta drafts...)
