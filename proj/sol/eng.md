@@ -17,6 +17,7 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - idk if oracle's elixir need data cleaning before processing into dataset, best is to clean whilst processing
 
 # champ embeddings
+- v0: need translation from name to ID from day 0 cuz we should never change champ representation
 - v1: just embed champ number
 - v2: synergy calcs(carefull because this might put too much emphasis on meta drafts...)
 
