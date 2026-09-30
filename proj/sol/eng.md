@@ -28,6 +28,9 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - things like golddiff@10 and how much by they win should probably be considered and impact model's confidence
 - we should build a benchmark where we input some drafts experts think its geniunly best and check how they do
 
+# pick order
+- pick order with `pick1` until `pick5` should be interpreted for some special head? or it can be important for eval learning
+
 # data loading & gpu performance speed
 - Entire selected dataset on GPU	==== Avoids repeated input transfers BUT takes some gpu memory
 - Dataset in RAM, batches to GPU	==== Avoids disk reads during training BUT CPU-GPU copy kernels can suck
