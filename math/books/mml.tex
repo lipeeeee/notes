@@ -101,9 +101,32 @@
     \end{bmatrix}
   \]
 
+\end{itemize}
+
 \subsection{matrices}
 
-\end{itemize}
+\subsubsection{Matrix Addition and Multiplication}
+
+Sum of Satrices $A, B \in \mathbb{R}^{m \times n}$ is defined as
+the element-wise sum, i.e.,
+\[
+  A + B := \begin{bmatrix}
+    a_{11} + b_{11} & \cdots & a_{1n} + b_{1n} \\
+    \vdots & & \vdots \\
+    a_{m1} + b_{m1} & \cdots & a_{mn} + b_{mn}
+  \end{bmatrix} \in \mathbb{R}^{m \times n}.
+  \tag{2.12}
+\]
+
+For matrices $A \in \mathbb{R}^{m \times n}$ and
+$B \in \mathbb{R}^{n \times k}$, the elements $c_{ij}$ of the product
+$C = AB \in \mathbb{R}^{m \times k}$ are computed as
+\[
+  c_{ij} = \sum_{l=1}^{n} a_{il}b_{lj},
+  \qquad i = 1, \ldots, m, \quad j = 1, \ldots, k.
+  \tag{2.13}
+\]
+This is the usual matrix multiplication.
 
 
 \end{document}
