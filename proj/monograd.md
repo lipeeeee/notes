@@ -10,6 +10,8 @@
     - can save time on dense matrices, because we do -1 gemm kernel-level
 - found out we can re-order scalar multiplication on matrices, x(AB) = (xA)B = A(xB) = (AB)x
     - dont know if there is any optimization here, probably by reordering MUL graphs to be always before OR after gemm kernels
+- also: there is another graph optim: if a matrix is being scaled more than once we can instead add the scalar values together
+    - xC + yC = (x + y)C. Saving 1 mul op, small but nice optim
 
 - compgt complt
     - then decompose rest
