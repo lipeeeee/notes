@@ -7,7 +7,9 @@
 
 - I MIGHT BE THE GOAT, CAN GAIN PERFORMANCE BY DISTRIBUTIVITY RULE ON MATMUL works when A,B have same dims:
     - (A + B)C = AC + BC
-    - can save time on dense matrices, because we do -1 gemm kernel
+    - can save time on dense matrices, because we do -1 gemm kernel-level
+- found out we can re-order scalar multiplication on matrices, x(AB) = (xA)B = A(xB) = (AB)x
+    - dont know if there is any optimization here, probably by reordering MUL graphs to be always before OR after gemm kernels
 
 - compgt complt
     - then decompose rest
