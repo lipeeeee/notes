@@ -25,8 +25,8 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - v1: from here picks should already be embedded
 
 # refining
-- things like golddiff@10 and how much by they win should probably be considered and impact model's confidence
 - we should build a benchmark where we input some drafts experts think its geniunly best and check how they do
+- post game stats can be used to improve understanding.. by creating heads that attempt to predict post game stats,grad descent will impact the weights of the eval head
 
 # pick order
 - pick order with `pick1` until `pick5` should be interpreted for some special head? or it can be important for eval learning
