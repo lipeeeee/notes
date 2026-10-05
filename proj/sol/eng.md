@@ -34,6 +34,9 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 # bans
 - probably are worthless for eval learning but need to be kept in mind; however for agentic drafting it needs that
 
+# utils
+- there should be some flag where we fetch new patch data(mainly used for champs) on `utils.py`
+
 # data loading & gpu performance speed
 - Entire selected dataset on GPU	==== Avoids repeated input transfers BUT takes some gpu memory
 - Dataset in RAM, batches to GPU	==== Avoids disk reads during training BUT CPU-GPU copy kernels can suck
