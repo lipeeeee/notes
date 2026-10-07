@@ -37,7 +37,7 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 # utils
 - there should be some flag where we fetch new patch data(mainly used for champs) on `utils.py`
 
-# data loading & gpu performance speed
+# fitting / data loading & gpu performance speed
 - Entire selected dataset on GPU	==== Avoids repeated input transfers BUT takes some gpu memory
 - Dataset in RAM, batches to GPU	==== Avoids disk reads during training BUT CPU-GPU copy kernels can suck
 - Dataset on disk, batches through RAM to GPU ==== Small memory footprint BUT loading may become the bottleneck
@@ -46,6 +46,9 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 diff layers, diff input data, diff output data, diff hyperparams(dotdict impl)
 
 definition + hyperparams configs
+
+# web server
+should be printing more useful info into stdout
 
 # oracle's elixir struct
 
