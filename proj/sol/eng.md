@@ -17,6 +17,7 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - idk if oracle's elixir need data cleaning before processing into dataset, best is to clean whilst processing
 
 - Sol is so memory efficient! (RAM and VRAM)
+    - sol 1 can take less than 50MB to run! dataset + params loaded in VRAM
 
 # champ embeddings
 - v0: need translation from name to ID from day 0 cuz we should never change champ representation
