@@ -17,14 +17,16 @@
 
 \subsection{Hypothesis Space}
 
-The set of all functions a model can represent, denoted by $\mathcal{H}$.
+The set of all functions a model can represent, denoted by
+$\mathcal{H}$.
 
 \[
-    \mathcal{H} = \{h : \mathcal{X} \to \mathcal{Y}\}
+    \mathcal{H} \subseteq
+    \{h : \mathcal{X} \to \mathcal{Y}\}
 \]
 
-Here, $h$ is a hypothesis mapping inputs $\mathcal{X}$ to outputs $\mathcal{Y}$.
-The actual hypothesis space contains only the functions allowed by the model.
+Here, $h$ is a hypothesis mapping inputs $\mathcal{X}$
+to outputs $\mathcal{Y}$.
 
 \subsection{Inductive Bias}
 
@@ -32,8 +34,8 @@ The assumptions that guide a learning algorithm toward certain
 hypotheses, allowing it to generalize beyond its training data.
 
 \textbf{Restriction bias.}
-Limits the hypothesis space $\mathcal{H}$ to a smaller set of possible
-functions.
+Limits the hypothesis space $\mathcal{H}$ to a smaller set
+of possible functions.
 
 \[
     \mathcal{H}_{\text{restricted}} \subseteq \mathcal{H}
@@ -43,10 +45,94 @@ A smaller hypothesis space can require less data to generalize,
 provided it contains a sufficiently good hypothesis.
 
 \textbf{Preference bias.}
-Favors certain hypotheses over others without necessarily excluding
-them from $\mathcal{H}$.
+Favors certain hypotheses over others without necessarily
+excluding them from $\mathcal{H}$.
 
-For example, weight decay encourages solutions with smaller weights (occam's razor).
+For example, weight decay encourages solutions with smaller weights.
+
+\subsection{L2 Norm} % NOTE: THIS PROBABLY SHOULDNT BE HERE!!
+
+The L2 norm, also known as the Euclidean norm, measures
+the magnitude (length) of a vector.
+
+For a vector $w \in \mathbb{R}^n$:
+
+\[
+    \|w\|_2 = \sqrt{\sum_{i=1}^{n} w_i^2}
+\]
+
+For example, given $w = [3,4]$:
+
+\[
+    \|w\|_2 = \sqrt{3^2 + 4^2} = 5
+\]
+
+The squared L2 norm removes the square root:
+
+\[
+    \|w\|_2^2 = \sum_{i=1}^{n} w_i^2
+\]
+
+\subsection{L2 Regularization}
+
+A regularization technique that discourages large model weights,
+helping reduce overfitting.
+
+Instead of minimizing only prediction loss, we add a penalty
+proportional to the squared L2 norm of the weights.
+
+\[
+    L_{\text{total}} =
+    L_{\text{prediction}} +
+    \frac{\lambda}{2}\|w\|_2^2
+\]
+
+Where:
+\begin{itemize}
+    \item $L_{\text{prediction}}$ is the original loss function.
+    \item $w$ is the vector of model weights being regularized.
+    \item $\lambda \geq 0$ controls regularization strength.
+    \item $\|w\|_2^2$ is the sum of squared weights.
+\end{itemize}
+
+Larger values of $\lambda$ penalize large weights more strongly.
+When $\lambda = 0$, there is no regularization.
+
+\subsubsection*{Effect on Gradient Descent}
+
+The penalty contributes an additional term to the gradient:
+
+\[
+    \frac{\partial L_{\text{total}}}{\partial w}
+    =
+    \frac{\partial L_{\text{prediction}}}{\partial w}
+    + \lambda w
+\]
+
+Substituting into the gradient descent update:
+
+\[
+    w_{\text{new}} =
+    w - \eta
+    \left(
+        \frac{\partial L_{\text{prediction}}}{\partial w}
+        + \lambda w
+    \right)
+\]
+
+Rearranging:
+
+\[
+    \boxed{
+        w_{\text{new}} =
+        (1-\eta\lambda)w -
+        \eta\frac{\partial L_{\text{prediction}}}{\partial w}
+    }
+\]
+
+Thus, each update shrinks the weights by a factor of
+$(1-\eta\lambda)$ before applying the prediction-loss gradient.
+
+This is equivalent to weight decay in standard SGD.
 
 \end{document}
-\documentclass[12pt, letterpaper]{article}
