@@ -19,6 +19,10 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - Sol is so memory efficient! (RAM and VRAM)
     - sol 1 can take less than 50MB to run! dataset + params loaded in VRAM
 
+# math & drafting
+- encode relationships i think are mathematically true about drafting and encode them into model (e.g synergy)
+    - "strong inductive bias can actually hurt performance if your assumptions are wrong. That's why the goal isn't to add as much structure as possible, but to add useful structure."
+
 # champ embeddings
 - v0: need translation from name to ID from day 0 cuz we should never change champ representation
 - v1: just embed champ number
