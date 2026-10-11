@@ -1,0 +1,38 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+
+\begin{document}
+
+\vspace{-1cm}
+\begin{center}
+  {\Huge\bfseries Definitions}
+\end{center}
+
+\section{Machine Learning}
+
+\subsection{inductive bias}
+
+\begin{itemize}
+  \item Restricting the hypothesis space $\mathcal{H}$ to a certain set of
+  hypotheses.
+
+  Smaller $\mathcal{H}$ means less data needed to pin down the right
+  hypothesis $h$.
+
+\end{itemize}
+
+\subsection{example: symmetry as inductive bias}
+
+A CNN restricts $\mathcal{H}$ from all functions $\mathbb{R}^{d \times d}
+\to \{0, 1\}$ to just the translation-equivariant ones,
+\[
+  \mathcal{H} = \{ f : f(\tau_a x) = \tau_a\, f(x) \quad \forall a \},
+\]
+where $\tau_a$ translates the image by $a$. The network never has to spend
+training data learning that an edge is an edge at every position, since the
+hypothesis cannot express ``not an edge at position 37'' --- that is why it
+generalizes.
+
+\end{document}
