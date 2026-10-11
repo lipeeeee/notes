@@ -1,38 +1,52 @@
 \documentclass[12pt, letterpaper]{article}
-\usepackage{hyperref}
-\usepackage{amsfonts}
-\usepackage{amsmath}
+
+\usepackage{amsmath, amssymb}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.5em}
 
 \begin{document}
 
-\vspace{-1cm}
+\vspace*{-1cm}
 \begin{center}
-  {\Huge\bfseries Definitions}
+    {\Huge\bfseries Definitions}
 \end{center}
 
 \section{Machine Learning}
 
-\subsection{inductive bias}
+\subsection{Hypothesis Space}
 
-\begin{itemize}
-  \item Restricting the hypothesis space $\mathcal{H}$ to a certain set of
-  hypotheses.
+The set of all functions a model can represent, denoted by $\mathcal{H}$.
 
-  Smaller $\mathcal{H}$ means less data needed to pin down the right
-  hypothesis $h$.
-
-\end{itemize}
-
-\subsection{example: symmetry as inductive bias}
-
-A CNN restricts $\mathcal{H}$ from all functions $\mathbb{R}^{d \times d}
-\to \{0, 1\}$ to just the translation-equivariant ones,
 \[
-  \mathcal{H} = \{ f : f(\tau_a x) = \tau_a\, f(x) \quad \forall a \},
+    \mathcal{H} = \{h : \mathcal{X} \to \mathcal{Y}\}
 \]
-where $\tau_a$ translates the image by $a$. The network never has to spend
-training data learning that an edge is an edge at every position, since the
-hypothesis cannot express ``not an edge at position 37'' --- that is why it
-generalizes.
+
+Here, $h$ is a hypothesis mapping inputs $\mathcal{X}$ to outputs $\mathcal{Y}$.
+The actual hypothesis space contains only the functions allowed by the model.
+
+\subsection{Inductive Bias}
+
+The assumptions that guide a learning algorithm toward certain
+hypotheses, allowing it to generalize beyond its training data.
+
+\textbf{Restriction bias.}
+Limits the hypothesis space $\mathcal{H}$ to a smaller set of possible
+functions.
+
+\[
+    \mathcal{H}_{\text{restricted}} \subseteq \mathcal{H}
+\]
+
+A smaller hypothesis space can require less data to generalize,
+provided it contains a sufficiently good hypothesis.
+
+\textbf{Preference bias.}
+Favors certain hypotheses over others without necessarily excluding
+them from $\mathcal{H}$.
+
+For example, weight decay encourages solutions with smaller weights (occam's razor).
 
 \end{document}
+\documentclass[12pt, letterpaper]{article}
