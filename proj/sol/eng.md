@@ -17,7 +17,7 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - idk if oracle's elixir need data cleaning before processing into dataset, best is to clean whilst processing
 
 - Sol is so memory efficient! (RAM and VRAM)
-    - sol 1 can take less than 50MB to run! dataset + params loaded in VRAM
+    - sol 1 weighs about 3.4Kb of memory using *float32*!
 
 # math & drafting
 - encode relationships i think are mathematically true about drafting and encode them into model (e.g synergy)
