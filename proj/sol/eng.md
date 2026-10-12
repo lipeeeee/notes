@@ -23,6 +23,9 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - encode relationships i think are mathematically true about drafting and encode them into model (e.g synergy)
     - "strong inductive bias can actually hurt performance if your assumptions are wrong. That's why the goal isn't to add as much structure as possible, but to add useful structure."
 
+- can "bruteforce" search after a certain number of picks have been selected, but before that idk what we should do
+- for each complete draft, 14400(5! * 5!) role combinations NEED to be computed (its basically free with batched gpu run)
+
 # champ embeddings
 - v0: need translation from name to ID from day 0 cuz we should never change champ representation
 - v1: just embed champ number
