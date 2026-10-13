@@ -19,6 +19,12 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - Sol is so memory efficient! (RAM and VRAM)
     - sol 1 weighs about 3.4Kb of memory using *float32*!
 
+- CUDA=1 flag override and ideal_checkpoint storage in sol_i.py
+    - think current proj setup needs a bit of refactoring
+    - import_sol_iteration? only if project becomes too messy, this is a bloated abstraction
+
+- benchmarks!
+
 # math & drafting
 - encode relationships i think are mathematically true about drafting and encode them into model (e.g synergy)
     - "strong inductive bias can actually hurt performance if your assumptions are wrong. That's why the goal isn't to add as much structure as possible, but to add useful structure."
