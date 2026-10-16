@@ -19,9 +19,17 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 - Sol is so memory efficient! (RAM and VRAM)
     - sol 1 weighs about 3.4Kb of memory using *float32*!
 
+- we should do 5050 split on blue/red wins
+
+- i might be able to hard-encode synergy pairings, this can also help in sol's personality
+
 - CUDA=1 flag override and ideal_checkpoint storage in sol_i.py
     - think current proj setup needs a bit of refactoring
     - import_sol_iteration? only if project becomes too messy, this is a bloated abstraction
+
+- sol architecture must be aware of different heads, some things might break if we expect only 1 head or use the wrong head, should be speced
+
+we need to store the embedding "version" for each checkpoint.. aswell as some other data like the version of the oracle data it should probably be documented somewhere
 
 - benchmarks!
 
