@@ -31,7 +31,7 @@ iterations ideally (just scrape all, each config will NEED post-processing)
 
 we need to store the embedding "version" for each checkpoint.. aswell as some other data like the version of the oracle data it should probably be documented somewhere
 
-- benchmarks!
+- benchmarks! should be able to benchmark multiple heads
 
 # math & drafting
 - encode relationships i think are mathematically true about drafting and encode them into model (e.g synergy)
