@@ -71,6 +71,9 @@ diff layers, diff input data, diff output data, diff hyperparams(dotdict impl)
 
 definition + hyperparams configs
 
+# performance
+PROFILE=1 flag and find some way to profile performance
+
 # web server
 should be printing more useful info into stdout
 
