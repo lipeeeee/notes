@@ -105,6 +105,8 @@ u = token set; k = context window; O1 is model params; maximizing L1(loss is `-L
 # [The Art of Drafting: A Team-Oriented Hero Recommendation System for MOBAs](https://arxiv.org/pdf/1806.10130)
 - in search: we can just go for near optimal pick, but we dont truly know the optimal pick unless we've found it in search so thats kinda stupid
 - can attatch prefference to blue and red, wait, thats dumb we shoulndt attatch prefference to blue and red because then we would be ignoring each other, unless the preference of red is the opposite of blue: 1-blue
+- wait, really weird finding: can we train the mcts tree with backprop?
+
 
 # Pranking with Ranking
 # Learning to Rank using Gradient Descent
