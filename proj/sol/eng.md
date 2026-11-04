@@ -1,25 +1,11 @@
 # proj setup 
-running specific files seperatly makes it more direct what u trying to do
-- sol/train.py
-- sol/run.py / inference.py or fancier name (THIS IS CLI RUN)
-- sol/helpers.py (that is imported eveywhere and setups env and checks for pkgs/data)
-- sol/update_data.py for oracle scraping?
-- config/sol_n.py configs, defaulting last_used(we can do a .sol_env! which can be cute)
 
-
-keep in mind: the scraping of data from oracle should be consistent across all
-iterations ideally (just scrape all, each config will NEED post-processing)
 - post-processing fns should have alot of args for multiple usages in multiple configs
 
 - put dataset computation in fn's so older models wont be computing synergy for hours,
-- also we should look into freezing computed datasets if they take too long, just like in tokenizers in transformers
-
-- idk if oracle's elixir need data cleaning before processing into dataset, best is to clean whilst processing
-
-- Sol is so memory efficient! (RAM and VRAM)
-    - sol 1 weighs about 3.4Kb of memory using *float32*!
 
 - we should do 5050 split on blue/red wins
+    - we should also check that the same draft on different sides evaluates into somewhat equal position
 
 - i might be able to hard-encode synergy pairings, this can also help in sol's personality
 
@@ -41,15 +27,12 @@ we need to store the embedding "version" for each checkpoint.. aswell as some ot
 - for each complete draft, 14400(5! * 5!) role combinations NEED to be computed (its basically free with batched gpu run)
 
 # champ embeddings
-- v0: need translation from name to ID from day 0 cuz we should never change champ representation
-- v1: just embed champ number
 - v2: synergy calcs(carefull because this might put too much emphasis on meta drafts...)
 
 # role embeddings
-- v1: from here picks should already be embedded
+- v2: from here picks should already be embedded
 
 # refining
-- we should build a benchmark where we input some drafts experts think its geniunly best and check how they do
 - post game stats can be used to improve understanding.. by creating heads that attempt to predict post game stats,grad descent will impact the weights of the eval head
 
 # pick order

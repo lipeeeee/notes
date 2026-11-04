@@ -3,6 +3,9 @@
 # Sol1
 Additive Model; Learning champ-role success through Embedding layers! extremely small model like 1k params, provides good baseline
 
+- Sol is so memory efficient! (RAM and VRAM)
+    - sol 1 weighs about 3.4Kb of memory using *float32*!
+
 ## Evaluation Function:
 
 ```
